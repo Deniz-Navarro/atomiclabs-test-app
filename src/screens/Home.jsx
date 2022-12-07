@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Atomic from '../components/atoms/Atomic';
+import More from '../components/atoms/More';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
                 <Atomic/>
                 <Text style={styles.title}>Desarrolla todo{'\n'}<Text style={styles.orangeText}>tu POTENCIAL{'\n'}</Text>dentro del equipo{'\n'}<Text style={styles.orangeText}>ATOMIC</Text>LABS</Text>
             </View>
+            <More />
             {/* </ImageBackground> */}
         </View>
     );
