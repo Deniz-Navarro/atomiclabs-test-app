@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
     },
     image1: {
-        width: 300,
-        height: 250,
+        width: '90%',
+        height: 320,
         alignSelf: 'center',
     },
     image2: {
