@@ -3,7 +3,7 @@ import {View, Image, Text, StyleSheet} from 'react-native';
 import TextLine from '../../atoms/TextLine';
 
 const Item = props => {
-    const {title, id, points} = props;
+    const {title, points} = props;
     return (
         <View style={styles.container}>
             <Image source={require('../../../assets/PaqueteAtomic/Group4035.png')} style={styles.image} />
