@@ -9,14 +9,16 @@ const InputContainer = props => {
         keyboardType, 
         value, 
         secure,
-        name
+        name,
+        validation,
+        textValidation,
     } = props;
     const [changeSecure, setchangeSecure] = useState(secure);
     return (
         <View style={styles.container}>
             <Text style={styles.name}>{name}</Text>
             <TextInput
-                style={styles.input}
+                style={validation ? [styles.input,styles.input2] : styles.input}
                 placeholder={placeholder}
                 secureTextEntry={changeSecure}
                 onChangeText={onChangeText}
@@ -26,6 +28,7 @@ const InputContainer = props => {
             <Pressable style={styles.icon} onPress={() => setchangeSecure(!changeSecure)}>
                 <Icon name={changeSecure ? 'lock' : 'lock-open'} size={30} color="gray" />
             </Pressable>
+            { validation && (<Text style={styles.validation}>{textValidation}</Text>)}
         </View>
     );
 };
@@ -41,6 +44,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: '#EAE5E2',
     },
+    validation: {
+        color: '#CD4714',
+        fontSize: 18,
+    },
     input: {
         height: 50,
         marginTop: 15,
@@ -49,6 +56,10 @@ const styles = StyleSheet.create({
         padding: 10,
         fontSize: 20,
         color: 'black',
+    },
+    input2: {
+        borderColor: '#CD4714', 
+        borderWidth: 2,
     },
     icon: {
         position: 'absolute',
