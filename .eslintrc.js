@@ -18,6 +18,8 @@ module.exports = {
         'react'
     ],
     'rules': {
+        'react/jsx-key': 'off',
+        'react/prop-types': 'off',
         'indent': [
             'error',
             4
