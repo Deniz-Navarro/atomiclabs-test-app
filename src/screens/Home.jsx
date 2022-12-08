@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     orangeText: {
-        color: '#FF7713',
+        color: '#FF6100',
     }
 });

@@ -1,12 +1,29 @@
 import React from 'react';
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet } from 'react-native';
+//Custom components
+import Atomic from '../components/atoms/Atomic';
+import ProgressBar from '../components/atoms/ProgressBar';
 
 const StepOne = () => {
     return (
-        <View>
-            <Text>Step One</Text>
+        <View style={styles.container}>
+            <View style={styles.header1}>
+                <Atomic />
+                <ProgressBar step={1} />
+            </View>
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+    },
+    header1: {
+        paddingTop: 30,
+        alignItems: 'center',
+    },
+});
 
 export default StepOne;
