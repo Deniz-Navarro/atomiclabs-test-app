@@ -8,7 +8,7 @@ import CustomText from '../components/atoms/CustomText';
 import InputContainer from '../components/atoms/InputContainer';
 import SendButton from '../components/atoms/SendButton';
 
-const StepOne = () => {
+const StepOne = ({navigation}) => {
     const [nombre, setNombre] = useState();
     const [apellido, setApellido] = useState();
     const [disabled, setDisabled] = useState(true);
@@ -52,7 +52,12 @@ const StepOne = () => {
             <SendButton 
                 text='Enviar' 
                 disabled={disabled} 
-                onPress={()=>console.log('hola')}/>
+                onPress={() => {
+                    navigation.navigate('StepTwo', {
+                        name: nombre,
+                        apellidos: apellido,
+                    });
+                }}/>
             <Image source={require('../assets/PaqueteAtomic/Group4033.png')} />
         </ScrollView>
     );
