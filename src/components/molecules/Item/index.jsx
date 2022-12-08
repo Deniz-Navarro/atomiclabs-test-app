@@ -3,7 +3,7 @@ import {View, Image, Text, StyleSheet} from 'react-native';
 import TextLine from '../../atoms/TextLine';
 
 const Item = props => {
-    const {title, id, points} = props;
+    const {title, points} = props;
     return (
         <View style={styles.container}>
             <Image source={require('../../../assets/PaqueteAtomic/Group4035.png')} style={styles.image} />
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         width: 350,
         padding: 15,
         margin: 20,
-        backgroundColor: '#FF7713',
+        backgroundColor: '#FF6100',
         borderRadius: 10,
         alignSelf: 'center',
         alignItems: 'center',

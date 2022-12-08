@@ -33,7 +33,7 @@ const Home = ({ navigation }) => {
             </View>
             <More />
             <Image 
-                source={require('../assets/PaqueteAtomic/Group4032.png')} 
+                source={require('../assets/PaqueteAtomic/Group4032.png')}
                 style={styles.image1} 
             />
             {/* </ImageBackground> */}
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     orangeText: {
-        color: '#FF7713',
+        color: '#FF6100',
     }
 });
