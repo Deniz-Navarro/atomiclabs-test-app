@@ -1,15 +1,11 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet} from 'react-native';
-import TextLine from '../TextLine';
+import {View, Text, StyleSheet} from 'react-native';
 
-const Item = props => {
-    const {title, id, points} = props;
+const ItemList = props => {
+    const {name} = props;
     return (
         <View style={styles.container}>
-            <Image source={require('../../../assets/PaqueteAtomic/Group4035.png')} style={styles.image} />
-            <Text style={styles.text}>____ _ ____</Text>
-            <Text style={styles.text}>{title}</Text>
-            {points.map((r,key) => <TextLine text={r} key={key}/>)}
+            <Text>{name}</Text>
         </View>
     );
 };
@@ -19,7 +15,7 @@ const styles = StyleSheet.create({
         width: 350,
         padding: 15,
         margin: 20,
-        backgroundColor: '#FF7713',
+        backgroundColor: '#2E70BA',
         borderRadius: 10,
         alignSelf: 'center',
         alignItems: 'center',
@@ -37,4 +33,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Item;
+export default ItemList;

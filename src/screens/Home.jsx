@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+//Custom Components
 import Atomic from '../components/atoms/Atomic';
 import More from '../components/atoms/More';
 import Button from '../components/atoms/Button';
-import Carousel from '../components/atoms/Carousel';
+import Carousel from '../components/molecules/Carousel';
+import CustomList from '../components/molecules/CustomList';
 
 const data = [
     {id: 1, title:'IMAGINA',image : 'Group4036.png', points: ['Estrategia Digital','Big Data & Analysis','Consultoría Tecnológica', 'Reducción de costos TI']},
@@ -12,6 +14,16 @@ const data = [
 ];
 
 const Home = ({ navigation }) => {
+    const [workers, setWorkers] = useState([]);
+    useEffect(()=>{
+        const url = 'https://atomic-test-api.onrender.com/names';
+        fetch(url,{
+            method : 'GET',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()).then(res => setWorkers(res)).catch(error => console.error('error: ', error));
+    },[]);
     return (
         <ScrollView style={styles.container}>
             {/* <ImageBackground source={require('./assets/PaqueteAtomic/MaskGroup1.png')} style={styles.image}> */}
@@ -41,6 +53,7 @@ const Home = ({ navigation }) => {
                 onPress={() => navigation.navigate('StepOne')}
             />
             <Text style={styles.title}>NUESTRO <Text style={styles.orangeText}>EQUIPO</Text></Text>
+            <CustomList data={workers} />
         </ScrollView>
     );
 };
