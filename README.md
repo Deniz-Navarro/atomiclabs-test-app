@@ -34,3 +34,9 @@ Open a new terminal in the project folder and run the following steps:
 - Run the project with <code>npm start</code> 
 - If you have an emulator you can run the following command <code>npm run android</code> or <code>npm run ios</code>
 - If you have a mobile you can scan de qr code with your camara and run the app. Scan the QR code with Expo Go (Android) or the Camera app (iOS)
+
+## License
+
+This work is sponsored by Atomic Labs.
+
+Copyright (c) 2020 AtomicLabs. All rights reserved.
