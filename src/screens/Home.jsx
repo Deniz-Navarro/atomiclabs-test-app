@@ -1,20 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Image, ScrollView, ImageBackground} from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView, ImageBackground, ActivityIndicator} from 'react-native';
 //Custom Components
 import Atomic from '../components/atoms/Atomic';
 import More from '../components/atoms/More';
 import Button from '../components/atoms/Button';
 import Carousel from '../components/molecules/Carousel';
 import CustomList from '../components/molecules/CustomList';
+import Footer from '../components/atoms/Footer';
 
+//Data object
 const data = [
     {id: 1, title:'IMAGINA',image : 'Group4036.png', points: ['Estrategia Digital','Big Data & Analysis','Consultoría Tecnológica', 'Reducción de costos TI']},
-    {id: 2, title:'EXPLORA',image : 'Group4035.png', points: ['Estrategia Digital','Big Data & Analysis','Consultoría Tecnológica', 'Reducción de costos TI']},
-    {id: 3, title:'CONNQUISTA',image : 'Group4037.png', points: ['Estrategia Digital','Big Data & Analysis','Consultoría Tecnológica', 'Reducción de costos TI']},
+    {id: 2, title:'EXPLORA',image : 'Group4035.png', points: ['Innovación y creación tecnológica','UI / UX','Innovación']},
+    {id: 3, title:'CONNQUISTA',image : 'Group4037.png', points: ['Desarrollo tecnológico y creación tecnológica', 'Ciberseguridad', 'Servicios de la Nube']},
 ];
 
 const Home = ({ navigation }) => {
-    const [workers, setWorkers] = useState([]);
+    const [workers, setWorkers] = useState([]); //Hook to save the api data
+    //Promise, fetch api 
     useEffect(()=>{
         const url = 'https://atomic-test-api.onrender.com/names';
         fetch(url,{
@@ -26,21 +29,25 @@ const Home = ({ navigation }) => {
         }).then(res => res.json()).then(res => setWorkers(res)).catch(error => console.log('error: ', error));
     },[]);
     return (
-        <ImageBackground
+        <ImageBackground /* Background */ 
             style={[styles.fixed, styles.containter]}
             source={require('../assets/PaqueteAtomic/fondo.png')}>
             <ScrollView style={[styles.containter]}>
-                {/* <ImageBackground source={require('./assets/PaqueteAtomic/MaskGroup1.png')} style={styles.image}> */}
-                <View style={styles.header}>
+                {/* Header */}
+                <View style={styles.header}> 
                     <Atomic/>
-                    <Text style={styles.title}>Desarrolla todo{'\n'}<Text style={styles.orangeText}>tu POTENCIAL{'\n'}</Text>dentro del equipo{'\n'}<Text style={styles.orangeText}>ATOMIC</Text>LABS</Text>
+                    {/* Title */}
+                    <Text style={styles.title}>Desarrolla todo{'\n'}
+                        <Text style={styles.orangeText}>tu POTENCIAL{'\n'}</Text>
+                    dentro del equipo{'\n'}
+                        <Text style={styles.orangeText}>ATOMIC</Text>
+                    LABS</Text>
                 </View>
                 <More />
                 <Image 
                     source={require('../assets/PaqueteAtomic/Group4032.png')}
                     style={styles.image1} 
                 />
-                {/* </ImageBackground> */}
                 <Button 
                     text="¡Quiero ser parte!" 
                     onPress={() => navigation.navigate('StepOne')}
@@ -56,8 +63,16 @@ const Home = ({ navigation }) => {
                     text="¡Quiero ser parte!" 
                     onPress={() => navigation.navigate('StepOne')}
                 />
-                <Text style={styles.title}>NUESTRO <Text style={styles.orangeText}>EQUIPO</Text></Text>
-                <CustomList data={workers} />
+                <Text style={styles.title}>NUESTRO 
+                    <Text style={styles.orangeText}>EQUIPO</Text>
+                </Text>
+                {
+                    /* Render worker list */
+                    workers ? 
+                        (<CustomList data={workers} />) : 
+                        (<ActivityIndicator size="large" />)
+                }
+                <Footer />
             </ScrollView>
         </ImageBackground>
     );
@@ -77,8 +92,9 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     image2: {
-        width: 350,
-        height: 121,
+        width: '100%',
+        height: 130,
+        margin: 20,
         alignSelf: 'center',
     },
     header: {

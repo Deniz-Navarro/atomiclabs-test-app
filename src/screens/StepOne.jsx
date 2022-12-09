@@ -7,6 +7,7 @@ import Step from '../components/atoms/Step';
 import CustomText from '../components/atoms/CustomText';
 import InputContainer from '../components/atoms/InputContainer';
 import SendButton from '../components/atoms/SendButton';
+import Footer from '../components/atoms/Footer';
 
 const StepOne = ({navigation}) => {
     const [nombre, setNombre] = useState();
@@ -59,6 +60,7 @@ const StepOne = ({navigation}) => {
                     });
                 }}/>
             <Image source={require('../assets/PaqueteAtomic/Group4033.png')} />
+            <Footer />
         </ScrollView>
     );
 };

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     text: {
-        color: 'blue',
+        color: '#106BA2',
         fontWeight: 'bold',
         fontSize: 16,
     },

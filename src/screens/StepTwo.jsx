@@ -6,6 +6,7 @@ import Step from '../components/atoms/Step';
 import CustomText from '../components/atoms/CustomText';
 import InputContainer from '../components/atoms/InputContainer';
 import SendButton from '../components/atoms/SendButton';
+import Footer from '../components/atoms/Footer';
 
 const sendData = async(nombre, apellidos, navigation, number) => {
     const url = 'https://atomic-test-api.onrender.com/form';
@@ -69,6 +70,7 @@ const StepTwo = ({route, navigation}) => {
             <Image 
                 style={styles.image} 
                 source={require('../assets/PaqueteAtomic/Group4034.png')} />
+            <Footer />
         </ScrollView>
     );
 };
