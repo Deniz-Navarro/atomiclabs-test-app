@@ -54,7 +54,7 @@ const StepOne = ({navigation}) => {
                 disabled={disabled} 
                 onPress={() => {
                     navigation.navigate('StepTwo', {
-                        name: nombre,
+                        nombre: nombre,
                         apellidos: apellido,
                     });
                 }}/>

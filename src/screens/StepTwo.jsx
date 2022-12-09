@@ -1,12 +1,34 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, View, Image, StyleSheet } from 'react-native';
+import {ScrollView, View, Image, StyleSheet, Alert } from 'react-native';
 import Atomic from '../components/atoms/Atomic';
 import ProgressBar from '../components/atoms/ProgressBar';
 import Step from '../components/atoms/Step';
 import CustomText from '../components/atoms/CustomText';
 import InputContainer from '../components/atoms/InputContainer';
 import SendButton from '../components/atoms/SendButton';
-const StepTwo = () => {
+
+const sendData = async(nombre, apellidos, navigation, number) => {
+    const url = 'https://atomic-test-api.onrender.com/form';
+    const body = {
+        firstname : nombre,
+        lastname : apellidos,
+        phoneNumber : number,
+    };
+    await fetch(url, {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',  // It can be used to overcome cors errors
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    }).then((response) => response.json()).then(() => {
+        navigation.navigate('SendData');
+    })
+        .catch(err => Alert.alert(err));
+};
+
+const StepTwo = ({route, navigation}) => {
+    const {nombre, apellidos} = route.params;
     const [number, setNumber] = useState();
     const [validation, setValidation] = useState(false);
     const [disabled, setDisabled] = useState(true);
@@ -36,13 +58,14 @@ const StepTwo = () => {
             <InputContainer 
                 name='Número de Celular' 
                 value={number} 
-                onChangeText={(a) => setNumber(a)} 
+                onChangeText={(a) => setNumber(a)}
+                keyboardType='number'
                 validation={validation}
                 textValidation='Ingresa un número de 10 digitos'/>
             <SendButton 
                 text='Continuar' 
                 disabled={disabled} 
-                onPress={() => console.log('hola')}/>
+                onPress={() => sendData(nombre, apellidos, navigation, number)}/>
             <Image 
                 style={styles.image} 
                 source={require('../assets/PaqueteAtomic/Group4034.png')} />

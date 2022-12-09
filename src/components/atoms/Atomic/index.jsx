@@ -16,9 +16,9 @@ const Atomic = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        padding: 10,
+        padding: 5,
         marginTop: 10,
-        marginBottom: 30,
+        marginBottom: 15,
         //backgroundColor: 'red',
     },
     textContainer: {
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         marginLeft: 2,
         padding: 4,
         borderLeftColor: 'white',
-        borderWidth: 1,
+        borderLeftWidth: 1,
     },
     text: {
         color: 'white',
