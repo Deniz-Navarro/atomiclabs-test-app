@@ -5,8 +5,11 @@ const SendButton = props => {
     const {text, onPress, disabled} = props;
     return (
         <Pressable 
-            onPress={onPress} 
-            style={disabled ? [styles.container,{backgroundColor: '#C15F24',}] : [styles.container,{backgroundColor: '#FF6100',}]}
+            onPress={onPress}
+            //Ternary to show styles when the button is disabled
+            style={disabled ? 
+                [styles.container,{backgroundColor: '#C15F24',}] : 
+                [styles.container,{backgroundColor: '#FF6100',}]}
             disabled={disabled}>
             <Text style={styles.text}>{text}</Text>
         </Pressable>

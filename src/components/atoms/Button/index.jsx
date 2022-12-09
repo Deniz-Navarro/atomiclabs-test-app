@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, Text, StyleSheet} from 'react-native';
-
+//Basic button
 const Button = props => {
     const {text, onPress} = props;
     return (
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     text: {
-        color: 'blue',
+        color: '#106BA2',
         fontWeight: 'bold',
         fontSize: 16,
     },
