@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View, Image, ScrollView, ImageBackground, ActivityIndicator} from 'react-native';
+import {Dimensions, StyleSheet, Text, View, Image, ScrollView, ImageBackground, ActivityIndicator} from 'react-native';
 //Custom Components
 import Atomic from '../components/atoms/Atomic';
 import More from '../components/atoms/More';
@@ -17,6 +17,13 @@ const data = [
 
 const Home = ({ navigation }) => {
     const [workers, setWorkers] = useState([]); //Hook to save the api data
+    //Scroll Constans
+    const [scroller, setScroller] = useState(null);
+    let screenHeight = Dimensions.get('window').height;
+    //Scroll Fuction
+    const scrollToB = () => {
+        scroller.scrollTo({x: 0, y: screenHeight + 50});
+    };
     //Promise, fetch api 
     useEffect(()=>{
         const url = 'https://atomic-test-api.onrender.com/names';
@@ -32,7 +39,10 @@ const Home = ({ navigation }) => {
         <ImageBackground /* Background */ 
             style={[styles.fixed, styles.containter]}
             source={require('../assets/PaqueteAtomic/fondo.png')}>
-            <ScrollView style={[styles.containter]}>
+            <ScrollView 
+                style={styles.containter}
+                ref={(scroller) => {setScroller(scroller);}}
+            >
                 {/* Header */}
                 <View style={styles.header}> 
                     <Atomic/>
@@ -43,7 +53,7 @@ const Home = ({ navigation }) => {
                         <Text style={styles.orangeText}>ATOMIC</Text>
                     LABS</Text>
                 </View>
-                <More />
+                <More onPress={scrollToB} />
                 <Image 
                     source={require('../assets/PaqueteAtomic/Group4032.png')}
                     style={styles.image1} 
