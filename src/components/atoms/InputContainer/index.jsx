@@ -10,6 +10,7 @@ const InputContainer = (props) => {
     placeholder,
     onChangeText,
     keyboardType,
+    maxLength,
     value,
     secure,
     name,
@@ -29,6 +30,7 @@ const InputContainer = (props) => {
         onChangeText={onChangeText}
         keyboardType={keyboardType}
         value={value}
+        maxLength={maxLength}
       />
       {/* Clickable to hide text*/}
       <Pressable

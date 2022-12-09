@@ -64,13 +64,9 @@ const Home = ({ navigation }) => {
   }, []);
 
   return (
-    <ScrollView
-      style={styles.container}
-      ref={setScroller}
-    >
-      <ImageBackground /* Background */
-        style={styles.container}
-        source={require('../assets/PaqueteAtomic/fondo.png')}
+    <ScrollView style={styles.container} ref={setScroller}>
+      <ImageBackground
+        source={require('../assets/PaqueteAtomic/fondo2.png')}
         resizeMode='cover'
       >
         {/* Header */}
@@ -123,8 +119,8 @@ const Home = ({ navigation }) => {
             <ActivityIndicator size="large" />
           )
         }
-        <Footer />
       </ImageBackground>
+      <Footer />
     </ScrollView>
   );
 };

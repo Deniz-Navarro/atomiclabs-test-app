@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Image, StyleSheet } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Image,
+  StyleSheet,
+  ImageBackground,
+} from 'react-native';
 import Atomic from '../components/atoms/Atomic';
 import ProgressBar from '../components/atoms/ProgressBar';
 import Step from '../components/atoms/Step';
@@ -30,33 +36,39 @@ const StepTwo = ({ route, navigation }) => {
   }, [number]);
   return (
     <ScrollView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header1}>
-        <Atomic />
-        <ProgressBar step={2} />
-        <Step step={2} t1="VALIDA TU" t2="CELULAR" />
-      </View>
-      <CustomText text="Necesitamos validar tu número para continuar" />
-      <CustomText text="Ingresa tu número a 10 digitos y te enviaremos un código SMS." />
-      {/* Input */}
-      <InputContainer
-        name="Número de Celular"
-        value={number}
-        onChangeText={(a) => setNumber(a)}
-        keyboardType="number"
-        validation={validation}
-        textValidation="Ingresa un número de 10 digitos"
-      />
-      {/* Button to send data to the endpoint */}
-      <SendButton
-        text="Continuar"
-        disabled={disabled}
-        onPress={() => sendData(nombre, apellidos, navigation, number)}
-      />
-      <Image
-        style={styles.image}
-        source={require('../assets/PaqueteAtomic/Group4034.png')}
-      />
+      <ImageBackground
+        source={require('../assets/PaqueteAtomic/fondo4.png')}
+        resizeMode="cover"
+      >
+        {/* Header */}
+        <View style={styles.header1}>
+          <Atomic />
+          <ProgressBar step={2} />
+          <Step step={2} t1="VALIDA TU" t2="CELULAR" />
+        </View>
+        <CustomText text="Necesitamos validar tu número para continuar" />
+        <CustomText text="Ingresa tu número a 10 digitos y te enviaremos un código SMS." />
+        {/* Input */}
+        <InputContainer
+          name="Número de Celular"
+          value={number}
+          onChangeText={(a) => setNumber(a)}
+          keyboardType="numeric"
+          validation={validation}
+          textValidation="Ingresa un número de 10 digitos"
+          maxLength={10}
+        />
+        {/* Button to send data to the endpoint */}
+        <SendButton
+          text="Continuar"
+          disabled={disabled}
+          onPress={() => sendData(nombre, apellidos, navigation, number)}
+        />
+        <Image
+          style={styles.image}
+          source={require('../assets/PaqueteAtomic/Group4034.png')}
+        />
+      </ImageBackground>
       <Footer />
     </ScrollView>
   );
