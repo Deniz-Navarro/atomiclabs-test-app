@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 const TextLine = props => {
-    //const boldWords = props.points.split('//');
     return (
         <View style={styles.container}>
             <Text style={styles.text}>• {props.text}</Text>

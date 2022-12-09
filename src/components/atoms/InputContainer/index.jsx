@@ -2,7 +2,10 @@ import React, {useState} from 'react';
 import {View, TextInput, Text, StyleSheet, Pressable} from 'react-native';
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 
+//Custom Input Container
+
 const InputContainer = props => {
+    //Destructuring the properties
     const {
         placeholder,
         onChangeText, 
@@ -13,10 +16,12 @@ const InputContainer = props => {
         validation,
         textValidation,
     } = props;
+    //Hooks
     const [changeSecure, setchangeSecure] = useState(secure);
     return (
         <View style={styles.container}>
             <Text style={styles.name}>{name}</Text>
+            {/* Text Input */}
             <TextInput
                 style={validation ? [styles.input,styles.input2] : styles.input}
                 placeholder={placeholder}
@@ -25,10 +30,15 @@ const InputContainer = props => {
                 keyboardType={keyboardType}
                 value={value}
             />
+            {/* Clickable to hide text*/}
             <Pressable style={styles.icon} onPress={() => setchangeSecure(!changeSecure)}>
                 <Icon name={changeSecure ? 'lock' : 'lock-open'} size={30} color="gray" />
             </Pressable>
-            { validation && (<Text style={styles.validation}>{textValidation}</Text>)}
+            { 
+                //Text to validate the field
+                validation && 
+                (<Text style={styles.validation}>{textValidation}</Text>)
+            }
         </View>
     );
 };

@@ -10,6 +10,7 @@ import SendButton from '../components/atoms/SendButton';
 import Footer from '../components/atoms/Footer';
 
 const StepOne = ({navigation}) => {
+    //Hooks
     const [nombre, setNombre] = useState();
     const [apellido, setApellido] = useState();
     const [disabled, setDisabled] = useState(true);
@@ -31,6 +32,7 @@ const StepOne = ({navigation}) => {
     } , [nombre, apellido]);
     return (
         <ScrollView style={styles.container}>
+            {/* Header */}
             <View style={styles.header1}>
                 <Atomic />
                 <ProgressBar step={1} />
@@ -40,6 +42,7 @@ const StepOne = ({navigation}) => {
                     t2='CONOCER' />
             </View>
             <CustomText text='Queremos saber que eres tú, por favor ingresa los siguientes datos:' />
+            {/* Inputs */}
             <InputContainer 
                 name='Nombre (s)' 
                 value={nombre} 
@@ -50,6 +53,7 @@ const StepOne = ({navigation}) => {
                 name='Apellidos' 
                 value={apellido} 
                 onChangeText={(a) => setApellido(a)}/>
+            {/* Button to send data */}
             <SendButton 
                 text='Enviar' 
                 disabled={disabled} 

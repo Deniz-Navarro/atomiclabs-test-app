@@ -5,9 +5,13 @@ import Item from '../Item';
 const Carousel = props => {
     const {data} = props;
     return (
-        <ScrollView horizontal={true} style={styles.container}>
+        <ScrollView 
+            horizontal={true} 
+            style={styles.container}>
             {data.map((item) => ( 
-                <Item {...item} key={item.id}/>
+                <Item 
+                    {...item} 
+                    key={item.id}/>
             ))}
         </ScrollView>
     );

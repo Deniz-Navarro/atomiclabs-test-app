@@ -7,17 +7,20 @@ import Footer from '../components/atoms/Footer';
 const SendData = () => {
     return (
         <ScrollView style={styles.container}>
+            {/* Header */}
             <View style={styles.header}>
                 <Atomic />
                 <Text style={styles.title}>TUS DATOS{'\n'} HAN SIDO 
                     <Text style={styles.orangeText}> ENVIADOS{'\n'} CON ÉXITO</Text>
                 </Text>
             </View>
+            {/* Text to show info */}
             <CustomText text='En breve recibirás un correo de confirmación por parte del equipo de AtomicLabs.' />
             <CustomText text='Recuerda revisar tu bandeja de SPAM ¡Esperamos verte pronto!' />
             <Image 
                 style={styles.image} 
                 source={require('../assets/PaqueteAtomic/Group4039.png')} />
+            {/* Footer */}
             <Footer />
         </ScrollView>
     );

@@ -3,8 +3,12 @@ import {Pressable, Text, StyleSheet, Image} from 'react-native';
 
 const More = props => {
     return (
-        <Pressable onPress={props.onPress} style={styles.container}>
-            <Image source={require('../../../assets/PaqueteAtomic/Group4013.png')} style={styles.image}/>
+        <Pressable 
+            onPress={props.onPress} 
+            style={styles.container}>
+            <Image 
+                source={require('../../../assets/PaqueteAtomic/Group4013.png')} 
+                style={styles.image}/>
             <Text style={styles.text}>Quiero saber más</Text>
         </Pressable>
     );

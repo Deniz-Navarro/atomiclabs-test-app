@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, Text, StyleSheet} from 'react-native';
-
+//Basic button
 const Button = props => {
     const {text, onPress} = props;
     return (

@@ -79,6 +79,8 @@ const Home = ({ navigation }) => {
 };
 
 export default Home;
+
+//Styles bench
 const styles = StyleSheet.create({
     containter: {
         flex: 1,

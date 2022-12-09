@@ -15,6 +15,7 @@ const sendData = async(nombre, apellidos, navigation, number) => {
         lastname : apellidos,
         phoneNumber : number,
     };
+    //Promise
     await fetch(url, {
         method: 'post',
         headers: {
@@ -29,10 +30,13 @@ const sendData = async(nombre, apellidos, navigation, number) => {
 };
 
 const StepTwo = ({route, navigation}) => {
+    //Get the data by route params
     const {nombre, apellidos} = route.params;
+    //Hooks
     const [number, setNumber] = useState();
     const [validation, setValidation] = useState(false);
     const [disabled, setDisabled] = useState(true);
+    //Validation function
     useEffect(() => {
         if(number){
             if(number.length >= 10){
@@ -46,6 +50,7 @@ const StepTwo = ({route, navigation}) => {
     },[number]);
     return (
         <ScrollView style={styles.container}>
+            {/* Header */}
             <View style={styles.header1}>
                 <Atomic />
                 <ProgressBar step={2} />
@@ -56,6 +61,7 @@ const StepTwo = ({route, navigation}) => {
             </View>
             <CustomText text='Necesitamos validar tu número para continuar' />
             <CustomText text='Ingresa tu número a 10 digitos y te enviaremos un código SMS.'/>
+            {/* Input */}
             <InputContainer 
                 name='Número de Celular' 
                 value={number} 
@@ -63,6 +69,7 @@ const StepTwo = ({route, navigation}) => {
                 keyboardType='number'
                 validation={validation}
                 textValidation='Ingresa un número de 10 digitos'/>
+            {/* Button to send data to the endpoint */}
             <SendButton 
                 text='Continuar' 
                 disabled={disabled} 

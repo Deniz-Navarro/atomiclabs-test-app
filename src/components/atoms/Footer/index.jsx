@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
+//Footer, to put in the end of the screen.
+
 const Footer = () =>{
     return(
         <View style={styles.container}>

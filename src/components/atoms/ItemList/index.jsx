@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
+// Component to render all workers.
 const ItemList = props => {
     const {name, position, avatar} = props;
     return (
         <View style={styles.container}>
-            <Image source={{uri: avatar}} style={styles.image}/>
+            <Image 
+                source={{uri: avatar}} 
+                style={styles.image}/>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>{name}</Text>
                 <Text style={styles.text2}>{position}</Text>

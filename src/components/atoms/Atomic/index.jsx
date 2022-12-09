@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
-
+//Component to show the logo of AtomicLabs
 const Atomic = () => {
     return (
         <View style={styles.container}>
-            <Icon name="rocket-outline" size={45} color="white" />
+            <Icon 
+                name="rocket-outline" 
+                size={45} 
+                color="white" />
             <View style={styles.textContainer}>
                 <Text style={styles.text}>atomicLabs</Text>
             </View>
@@ -19,7 +22,6 @@ const styles = StyleSheet.create({
         padding: 5,
         marginTop: 10,
         marginBottom: 15,
-        //backgroundColor: 'red',
     },
     textContainer: {
         justifyContent: 'center',

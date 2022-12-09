@@ -1,14 +1,19 @@
 import React from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 
+//Component to show the progress of the step.
 const ProgressBar = props => {
     const {step} = props;
     return(
         <View>
             <View>
                 <View style={styles.row}>
-                    <Image source={step == 1 ? require('../../../assets/PaqueteAtomic/Group4015.png') : require('../../../assets/PaqueteAtomic/Group4016.png')}/>
-                    <Image source={step == 1 ? require('../../../assets/PaqueteAtomic/Group4019.png') : require('../../../assets/PaqueteAtomic/Group4020.png')}/>
+                    <Image source={step == 1 ? 
+                        require('../../../assets/PaqueteAtomic/Group4015.png') : 
+                        require('../../../assets/PaqueteAtomic/Group4016.png')}/>
+                    <Image source={step == 1 ? 
+                        require('../../../assets/PaqueteAtomic/Group4019.png') : 
+                        require('../../../assets/PaqueteAtomic/Group4020.png')}/>
                 </View>
                 <View style={styles.bar}>
                     {/*Progress bar*/}
